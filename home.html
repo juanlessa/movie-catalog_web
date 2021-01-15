@@ -24,9 +24,11 @@
     <title>Homepage</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container text-light">
+      <!-- NAVBAR -->
+
       <nav
-        class="navbar navbar-expand-lg navbar-dark bg-dark rounded-circle border border-white"
+        class="navbar navbar-expand-lg navbar-dark bg-dark border border-top-0 border-secondary"
       >
         <a class="navbar-brand display-1" href="#"
           ><i class="fa fa-flag"></i
@@ -78,12 +80,14 @@
           </ul>
         </div>
       </nav>
+      <!--  END NAVBAR  -->
+
       <div class="row">
         <div
-          class="col col-sm-12 mt-5 text-light rounded border border-white bg-dark h-100"
+          class="col col-sm-12 mt-5 text-light rounded border border-secondary bg-dark h-100"
         >
           <div class="display-1 text-center">Welcome</div>
-          <div class="display-5">
+          <div class="display-5 text-center">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet
             illum aspernatur vel aperiam ipsum facilis praesentium recusandae
             soluta rerum eligendi error, porro magni perferendis in dolor
@@ -101,6 +105,16 @@
       </div>
     </div>
 
+    <!-- FOOTER -->
+
+    <div class="footer bg-dark text-white fixed-bottom py-3">
+      <span class="text-left mx-4 text-secondary"
+        ><i class="fa fa-copyright"></i> 2021 - Introdução à Tecnologias
+        Web</span
+      >
+      <span class="float-right mx-4 d-none d-sm-block">Netflix UA</span>
+    </div>
+    <!-- END FOOTER -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
   </body>

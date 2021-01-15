@@ -5,10 +5,12 @@ body {
     rgba(51, 51, 51, 1) 10%,
     rgba(0, 0, 0, 1) 100%
   );
+  font-family: "Montserrat", sans-serif !important;
 }
 
 .navbar {
   font-size: 1em !important;
   color: #000 !important;
-  font-family: "Montserrat", sans-serif !important;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
