@@ -21,14 +21,14 @@
     <link href="content/bootstrap.min.css" rel="stylesheet" />
     <link href="content/font-awesome.min.css" rel="stylesheet" />
 
-    <title>Homepage</title>
+    <title>Categories</title>
   </head>
   <body>
     <div class="container text-light">
       <!-- NAVBAR -->
 
       <nav
-        class="navbar navbar-expand-lg navbar-dark bg-dark border border-top-0 border-secondary"
+        class="navbar navbar-expand-lg navbar-dark bg-dark border border-top-0 border-secondary opacity-5"
       >
         <a class="navbar-brand display-1" href="home.html"
           ><i class="fa fa-flag"></i
@@ -46,12 +46,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="home.html"
                 >Home <span class="sr-only">(current)</span></a
               >
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="categories.html">Category</a>
             </li>
             <li class="nav-item">
@@ -65,7 +65,7 @@
             </li>
             <form class="form-inline my-2 my-lg-0">
               <input
-                class="form-control mr-sm-2"
+                class="form-control mr-smy-4"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
@@ -82,26 +82,32 @@
       </nav>
       <!--  END NAVBAR  -->
 
-      <div class="row">
-        <div
-          class="col col-sm-12 mt-5 text-light border border-secondary homescreen"
-        >
-          <div class="display-1 text-center">Welcome</div>
-          <div class="display-5 text-center">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet
-            illum aspernatur vel aperiam ipsum facilis praesentium recusandae
-            soluta rerum eligendi error, porro magni perferendis in dolor
-            tempore voluptates, exercitationem expedita ad sint neque. Explicabo
-            architecto minima dicta illum facilis mollitia possimus voluptate
-            excepturi in necessitatibus debitis, quam inventore magni non eum
-            repudiandae repellat nobis. Fugit debitis sint nesciunt repellendus
-            alias! Officia maiores soluta incidunt, optio neque in, saepe alias
-            enim commodi laudantium deleniti eum mollitia ullam labore
-            reiciendis delectus cupiditate fuga aut, maxime dignissimos ipsam
-            asperiores! Quae sit, in architecto culpa a ipsum sed, possimus
-            deleniti odio explicabo tenetur atque!
+      <div class="container">
+          <div class="display-4 font-weight-bold my-4">All Titles</div>
+          <div class="row">
+              <div class="col col-lg-3 col-md-4 col-sm-6 text-center my-4 py-3 category" onmouseover="toggleBorder(this)" onmouseout="untoggleBorder(this)">
+                Action
+              </div>
+              <div class="col col-lg-3 col-md-4 col-sm-6 text-center my-4 py-3 category" onmouseover="toggleBorder(this)" onmouseout="untoggleBorder(this)">
+                Adventure
+              </div>
+              <div class="col col-lg-3 col-md-4 col-sm-6 text-center my-4 py-3 category" onmouseover="toggleBorder(this)" onmouseout="untoggleBorder(this)">
+                Drama
+              </div>
+              <div class="col col-lg-3 col-md-4 col-sm-6 text-center my-4 py-3 category" onmouseover="toggleBorder(this)" onmouseout="untoggleBorder(this)">
+                Romance
+              </div>
+              <div class="col col-lg-3 col-md-4 col-sm-6 text-center my-4 py-3 category" onmouseover="toggleBorder(this)" onmouseout="untoggleBorder(this)">
+                Horror
+              </div>
+              <div class="col col-lg-3 col-md-4 col-sm-6 text-center my-4 py-3 category" onmouseover="toggleBorder(this)" onmouseout="untoggleBorder(this)">
+                Documentary
+              </div>
           </div>
-        </div>
+      </div>
+
+
+
 
     <!-- FOOTER -->
 
@@ -115,9 +121,19 @@
     <!-- END FOOTER -->
 
         <!-- jQuery and Bootstrap Bundle -->
+        <!-- <script type="text/javascript" src="categories.js"></script> -->
+        <script>
+            function toggleBorder(object) {
+                object.classList.toggle("border");
+                object.classList.toggle("border-light");
+            }
+
+            function untoggleBorder(object) {
+                object.classList.toggle("border");
+                object.classList.toggle("border-light");
+            }
+        </script>
         <script src="scripts/jquery-3.5.1.min.js"></script>
         <script src="scripts/bootstrap.bundle.min.js"></script>
-        <!-- Knockoutjs -->
-        <script src="scripts/knockout-3.5.1.js"></script>
       </body>
 </html>
