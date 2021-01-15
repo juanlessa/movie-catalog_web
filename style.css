@@ -14,3 +14,7 @@ body {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
+
+.navbar-nav:last-child {
+  float: right;
+}
