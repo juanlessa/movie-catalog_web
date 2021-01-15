@@ -22,3 +22,13 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 20px;
 }
+
+.category {
+  border-radius: 10px;
+  padding-left: 5px;
+  padding-right: 200px;
+}
+
+.category:hover {
+  text-decoration: underline;
+}

@@ -30,7 +30,7 @@
       <nav
         class="navbar navbar-expand-lg navbar-dark bg-dark border border-top-0 border-secondary opacity-5"
       >
-        <a class="navbar-brand display-1" href="#"
+        <a class="navbar-brand display-1" href="home.html"
           ><i class="fa fa-flag"></i
         ></a>
         <button
@@ -46,13 +46,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"
+            <li class="nav-item">
+              <a class="nav-link" href="home.html"
                 >Home <span class="sr-only">(current)</span></a
               >
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Category</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="categories.html">Category</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Country</a>
@@ -65,7 +65,7 @@
             </li>
             <form class="form-inline my-2 my-lg-0">
               <input
-                class="form-control mr-sm-2"
+                class="form-control mr-smy-4"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
@@ -83,10 +83,25 @@
       <!--  END NAVBAR  -->
 
       <div class="container">
-          <div class="display-4">All Titles</div>
+          <div class="display-4 font-weight-bold my-4">All Titles</div>
           <div class="row">
-              <div class="col col-3 col-sm-6 col-md-4">
-
+              <div class="col col-lg-3 col-md-4 col-sm-6 text-center my-4 py-3 category" onmouseover="toggleBorder(this)" onmouseout="untoggleBorder(this)">
+                Action
+              </div>
+              <div class="col col-lg-3 col-md-4 col-sm-6 text-center my-4 py-3 category" onmouseover="toggleBorder(this)" onmouseout="untoggleBorder(this)">
+                Adventure
+              </div>
+              <div class="col col-lg-3 col-md-4 col-sm-6 text-center my-4 py-3 category" onmouseover="toggleBorder(this)" onmouseout="untoggleBorder(this)">
+                Drama
+              </div>
+              <div class="col col-lg-3 col-md-4 col-sm-6 text-center my-4 py-3 category" onmouseover="toggleBorder(this)" onmouseout="untoggleBorder(this)">
+                Romance
+              </div>
+              <div class="col col-lg-3 col-md-4 col-sm-6 text-center my-4 py-3 category" onmouseover="toggleBorder(this)" onmouseout="untoggleBorder(this)">
+                Horror
+              </div>
+              <div class="col col-lg-3 col-md-4 col-sm-6 text-center my-4 py-3 category" onmouseover="toggleBorder(this)" onmouseout="untoggleBorder(this)">
+                Documentary
               </div>
           </div>
       </div>
@@ -106,6 +121,18 @@
     <!-- END FOOTER -->
 
         <!-- jQuery and Bootstrap Bundle -->
+        <!-- <script type="text/javascript" src="categories.js"></script> -->
+        <script>
+            function toggleBorder(object) {
+                object.classList.toggle("border");
+                object.classList.toggle("border-light");
+            }
+
+            function untoggleBorder(object) {
+                object.classList.toggle("border");
+                object.classList.toggle("border-light");
+            }
+        </script>
         <script src="scripts/jquery-3.5.1.min.js"></script>
         <script src="scripts/bootstrap.bundle.min.js"></script>
       </body>
