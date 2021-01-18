@@ -27,6 +27,10 @@ body {
   border-radius: 10px;
 }
 
+li:hover {
+  text-decoration: underline;
+}
+
 .category:hover {
   text-decoration: underline;
 }
