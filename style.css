@@ -34,3 +34,7 @@ li:hover {
 .category:hover {
   text-decoration: underline;
 }
+
+.card-text {
+  font-size: 80%;
+}
