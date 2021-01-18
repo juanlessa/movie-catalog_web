@@ -43,7 +43,7 @@ $(document).ready(async function () {
                               "Titles": ko.observableArray(category.Titles)
                             })
     ))
-
+    $("#conteudo").toggleClass("hide")
     ko.applyBindings(categories_list)
     console.log(categories_list())
         console.log(categories_list()[1].Titles())
