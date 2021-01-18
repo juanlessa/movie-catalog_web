@@ -1,53 +1,93 @@
-async function getCategories() {
-  const result = await $.ajax({
-    url: "http://192.168.160.58/netflix/api/Categories?page=1&pagesize=10",
-    type: "GET",
-    success: function (data) {
-      //wacky nested anonymous callbacks go here
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      // Empty most of the time...
-    },
-  });
-  return result.Categories;
+async function getCategories(page, pagesize) {
+    const result = await $.ajax({
+        url: "http://192.168.160.58/netflix/api/Categories?page="+page+"&pagesize="+pagesize,
+        type: "GET",
+        success: function (data) {
+            //wacky nested anonymous callbacks go here
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            // Empty most of the time...
+        },
+    });
+    number_of_pages = result.TotalPages
+    return result.Categories;
 }
 async function getCategoryTitles(categories) {
-  var cat_list = [];
-  for (let i = 0; i < categories.length; i++) {
-    var cat = { Id: categories[i].Id, Name: categories[i].Name };
-    const result = await $.ajax({
-      url: "http://192.168.160.58/netflix/api/Categories/" + cat.Id,
-      type: "GET",
-      success: function (data) {
-        //wacky nested anonymous callbacks go here
-      },
-      error: function (jqXHR, textStatus, errorThrown) {
-        // Empty most of the time...
-      },
-    });
-    cat.Titles = result.Titles.slice(0, 10);
-    cat_list.push(cat);
-  }
-  return cat_list;
+    var cat_list = [];
+    for (let i = 0; i < categories.length; i++) {
+        var cat = { Id: categories[i].Id, Name: categories[i].Name };
+        const result = await $.ajax({
+            url: "http://192.168.160.58/netflix/api/Categories/" + cat.Id,
+            type: "GET",
+            success: function (data) {
+                //wacky nested anonymous callbacks go here
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                // Empty most of the time...
+            },
+        });
+        cat.Titles = result.Titles.slice(0, 3);
+        cat_list.push(cat);
+    }
+    return cat_list;
 }
-var categories_list = ko.observableArray([]);
+//muda de pagina
+async function changePage(){
+    //$().append( "<p>Test</p>" );
+    console.log("ikaa")
+    pageToJump = event.target.text
+    var cats = await getCategories(pageToJump, init_pagesize);
+    var cat_list = await getCategoryTitles(cats);
+    cat_list.map((category) =>
+        categories.list.push({
+            Id: category.Id,
+            Name: category.Name,
+            Titles: ko.observableArray(category.Titles),
+        })
+    );
+}
 
+//lista de categorias
+function CategoriesViewModel(){
+    var self = this;
+
+    self.list = ko.observableArray([]);
+}
+categories = new CategoriesViewModel()
+ko.applyBindings(categories);
+
+//paginação
+var init_page = 1;
+var init_pagesize = 5;
+var number_of_pages = 1;
 $(document).ready(async function () {
-  var cats = await getCategories();
-  var cat_list = await getCategoryTitles(cats);
-  cat_list.map((category) =>
-    categories_list.push({
-      Id: category.Id,
-      Name: category.Name,
-      Titles: ko.observableArray(category.Titles),
-    })
-  );
-  $("#conteudo").toggleClass("hide");
-  $("#loader").toggleClass("hide-loader");
-  ko.applyBindings(categories_list);
-  console.log(categories_list());
-  console.log(categories_list()[1].Titles());
+    var cats = await getCategories(init_page, init_pagesize);
+    var cat_list = await getCategoryTitles(cats);
+    cat_list.map((category) =>
+        categories.list.push({
+            Id: category.Id,
+            Name: category.Name,
+            Titles: ko.observableArray(category.Titles),
+        })
+    );
+    //pagination
+    for (let i = 2; i <= number_of_pages; i++) {
+        $("#pageList").append( "<li class='page-item'><a class='page-link' href='#' onclick='changePage()'>"+i+"</a></li>" );
+    }onclick
+
+    //hide loader
+    $("#conteudo").toggleClass("hide");
+    $("#loader").toggleClass("hide-loader");
+    console.log(categories.list());
+    console.log(categories.list()[0].Titles());
+
+ 
 });
+
+
+
+
+
 
 /*
 //variable to store categories information temporally
