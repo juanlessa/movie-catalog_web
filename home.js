@@ -33,10 +33,21 @@ async function getCategoryTitles(categories) {
 }
 //muda de pagina
 async function changePage(){
-    //$().append( "<p>Test</p>" );
-    console.log("ikaa")
+    //hide loader
+    $("#conteudo").toggleClass("hide");
+    $("#loader").toggleClass("hide-loader");
+
     pageToJump = event.target.text
-    var cats = await getCategories(pageToJump, init_pagesize);
+    for (let i = 0; i < current_pagesize - 1; i++) {
+        categories.list.pop()
+    }
+    $("#page"+pageToJump).toggleClass("disabled");
+    $("#page"+current_page).toggleClass("disabled");
+    current_page = pageToJump
+    console.log(categories.list());
+    console.log(categories.list()[0].Titles());
+
+    var cats = await getCategories(pageToJump, current_pagesize);
     var cat_list = await getCategoryTitles(cats);
     cat_list.map((category) =>
         categories.list.push({
@@ -45,6 +56,10 @@ async function changePage(){
             Titles: ko.observableArray(category.Titles),
         })
     );
+    categories.list.shift()
+    //hide loader
+    $("#conteudo").toggleClass("hide");
+    $("#loader").toggleClass("hide-loader");
 }
 
 //lista de categorias
@@ -57,11 +72,11 @@ categories = new CategoriesViewModel()
 ko.applyBindings(categories);
 
 //paginação
-var init_page = 1;
-var init_pagesize = 5;
+var current_page = 1;
+var current_pagesize = 5;
 var number_of_pages = 1;
 $(document).ready(async function () {
-    var cats = await getCategories(init_page, init_pagesize);
+    var cats = await getCategories(current_page, current_pagesize);
     var cat_list = await getCategoryTitles(cats);
     cat_list.map((category) =>
         categories.list.push({
@@ -72,7 +87,7 @@ $(document).ready(async function () {
     );
     //pagination
     for (let i = 2; i <= number_of_pages; i++) {
-        $("#pageList").append( "<li class='page-item'><a class='page-link' href='#' onclick='changePage()'>"+i+"</a></li>" );
+        $("#pageList").append( "<li id='page"+ i +"' class='page-item'><a class='page-link' href='#' onclick='changePage()'>"+i+"</a></li>" );
     }onclick
 
     //hide loader
@@ -81,7 +96,7 @@ $(document).ready(async function () {
     console.log(categories.list());
     console.log(categories.list()[0].Titles());
 
- 
+    
 });
 
 
