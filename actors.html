@@ -20,7 +20,7 @@
     <title>Actors</title>
   </head>
   <body>
-    <div class="container text-light">
+    <div class="container mb-5 text-light">
       <!-- NAVBAR -->
 
       <nav
@@ -80,35 +80,36 @@
 
       <div id="loader" class="loader"></div>
       <div id="conteudo" class="hide">
-          <div class="display-4 font-weight-bold my-4">Actors</div>
-          <div class="row">
-              <div class="row my-5 h4" data-bind="foreach: actors.list">
-
-                  <div class="col col-lg-3 col-sm-4 mb-4">
-                      <ul>
-                          <li
-                              onclick="redirectPage(this)"
-                            data-bind="text: $data.Name,  attr: {id: $data.Id}">
-                          </li>
-                      </ul>
-                  </div>
-                  
-              </div>
+        <div class="display-4 font-weight-bold my-4">Actors</div>
+        <div class="row">
+          <div class="row my-5 h4" data-bind="foreach: actors.list">
+            <div class="col col-lg-3 col-sm-4 mb-4">
+              <ul>
+                <li
+                  onclick="redirectPage(this)"
+                  data-bind="text: $data.Name,  attr: {id: $data.Id}"
+                ></li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-
-          <!-- Paginação -->
+        <!-- Paginação -->
+        <div class="row justify-content-center">
           <nav aria-label="...">
-            <ul id="pageList" class="pagination pagination-lg">
+            <ul id="pageList" class="pagination pagination-md">
               <li id="page1" class="page-item active">
-                <a onclick="changePage()" class="page-link" href="#" tabindex="-1"
+                <a
+                  onclick="changePage()"
+                  class="page-link"
+                  href="#"
+                  tabindex="-1"
                   >1</a
                 >
               </li>
             </ul>
           </nav>
-
-
+        </div>
       </div>
     </div>
 
@@ -127,9 +128,9 @@
     <!-- jQuery and Bootstrap Bundle -->
     <script src="scripts/jquery-3.5.1.min.js"></script>
     <script src="scripts/bootstrap.bundle.min.js"></script>
-        <!-- Knockoutjs -->
-        <script src="scripts/knockout-3.5.1.js"></script>
+    <!-- Knockoutjs -->
+    <script src="scripts/knockout-3.5.1.js"></script>
 
-        <script src="actors.js"></script>
+    <script src="actors.js"></script>
   </body>
 </html>
