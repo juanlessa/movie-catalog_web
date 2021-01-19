@@ -59,7 +59,7 @@ var allactors = [];
 
 //paginação
 var current_page = 1;
-var current_pagesize = 200;
+var current_pagesize = 900;
 var number_of_pages = 1;
 
 $(document).ready(async function () {
@@ -71,7 +71,7 @@ $(document).ready(async function () {
    
     console.log(actors.list());
     
-    for (let i = 2; i <= 20; i++) {
+    for (let i = 2; i <= 30; i++) {
         $("#pageList").append( "<li id='page"+ i +"' class='page-item'><a class='page-link' href='#' onclick='changePage()'>"+i+"</a></li>" );
     }
 
