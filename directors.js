@@ -7,9 +7,9 @@ function untoggleBorder(object) {
     object.classList.toggle("border");
     object.classList.toggle("border-light");
 }
-async function getCategories(page, pagesize) {
+async function getDirectors(page, pagesize) {
     const result = await $.ajax({
-        url: "http://192.168.160.58/netflix/api/Categories?page="+page+"&pagesize="+pagesize,
+        url: "http://192.168.160.58/netflix/api/Directors?page="+page+"&pagesize="+pagesize,
         type: "GET",
         success: function (data) {
             //wacky nested anonymous callbacks go here
@@ -19,7 +19,7 @@ async function getCategories(page, pagesize) {
         },
     });
     number_of_pages = result.TotalPages
-    return result.Categories;
+    return result.Directors;
 }
 
 //muda de pagina
@@ -30,23 +30,23 @@ async function changePage(){
 
     pageToJump = event.target.text
 
-    var len =  categories.list().length
+    var len =  directors.list().length
     for (let i = 0; i < len - 1; i++) {
-        categories.list.pop()
+        directors.list.pop()
     }
     $("#page"+pageToJump).toggleClass("disabled");
     $("#page"+current_page).toggleClass("disabled");
     current_page = pageToJump
 
 
-    var cats = await getCategories(current_page, current_pagesize);
+    var cats = await getDirectors(current_page, current_pagesize);
     cats.map((category) =>
-        categories.list.push({
+        directors.list.push({
             Id: category.Id,
             Name: category.Name,
         })
     );
-    categories.list.shift()
+    directors.list.shift()
     //hide loader
     $("#conteudo").toggleClass("hide");
     $("#loader").toggleClass("hide-loader");
@@ -55,31 +55,28 @@ async function changePage(){
 function redirectPage(elem){
     
     var id = elem.id
-    window.location.replace("categoryTitles.html?id="+id);
+    window.location.replace("directorTitles.html?id="+id);
 }
 
 
 
 //lista de categorias
-function CategoriesViewModel(){
+function DirectorsViewModel(){
     var self = this;
 
     self.list = ko.observableArray([]);
 }
-categories = new CategoriesViewModel()
-ko.applyBindings(categories);
+directors = new DirectorsViewModel()
+ko.applyBindings(directors);
 
 //paginação
 var current_page = 1;
-var current_pagesize = 12;
+var current_pagesize = 200;
 var number_of_pages = 1;
 $(document).ready(async function () {
-    var cats = await getCategories(current_page, current_pagesize);
-    cats.map((category) =>
-        categories.list.push({
-            Id: category.Id,
-            Name: category.Name,
-        })
+    var direcs = await getDirectors(current_page, current_pagesize);
+    direcs.map((director) =>
+        directors.list.push(director)
     );
     //pagination
     for (let i = 2; i <= number_of_pages; i++) {
@@ -89,7 +86,8 @@ $(document).ready(async function () {
     //hide loader
     $("#conteudo").toggleClass("hide");
     $("#loader").toggleClass("hide-loader");
-    console.log(categories.list());
+    console.log(directors.list());
+    console.log(number_of_pages)
 });
 
 

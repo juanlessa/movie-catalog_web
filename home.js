@@ -31,6 +31,13 @@ async function getCategoryTitles(categories) {
     }
     return cat_list;
 }
+//redirect
+function redirectPage(elem){
+    var id = elem.parentNode.childNodes[1].innerHTML
+    window.location.replace("details.html?id="+id);
+}
+
+
 //muda de pagina
 async function changePage(){
     //hide loader
@@ -38,7 +45,10 @@ async function changePage(){
     $("#loader").toggleClass("hide-loader");
 
     pageToJump = event.target.text
-    for (let i = 0; i < current_pagesize - 1; i++) {
+
+
+    var len =  categories.list().length
+    for (let i = 0; i < len - 1; i++) {
         categories.list.pop()
     }
     $("#page"+pageToJump).toggleClass("disabled");
