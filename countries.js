@@ -10,7 +10,6 @@ async function getCountries() {
             // Empty most of the time...
         },
     });
-    number_of_pages = result.TotalPages
     return result.Countries;
 }
 
