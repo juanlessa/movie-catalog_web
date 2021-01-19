@@ -78,43 +78,107 @@
       </nav>
       <!--  END NAVBAR  -->
 
-      <div class="display-4 font-weight-bold my-4">Actors</div>
-      <div class="row">
-        <div class="col-12 border border-secondary text-center">
-          A - B - C - D - E - F - G - H - I - J - K - L - M - N - O - P - Q - R
-          - S - T - U - V - X - W - Y - Z
-        </div>
+      <div id="loader" class="loader"></div>
+      <div id="conteudo" class="hide">
+          <div class="display-4 font-weight-bold my-4">Actors</div>
+          <div class="row">
+              <!-- pagination -->
+              <nav aria-label="...">
+                  <ul id="pageList" class="pagination">
+                      <li id="pageA" class="page-item active">
+                          <a onclick='changePage()' class="page-link" href="#">A</a>
+                      </li>
+                      <li id="pageB" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">B</a>
+                      </li>
+                      <li id="pageC" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">C</a>
+                      </li>
+                      <li id="pageD" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">D</a>
+                      </li>
+                      <li id="pageE" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">E</a>
+                      </li>
+                      <li id="pageF" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">F</a>
+                      </li>
+                      <li id="pageG" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">G</a>
+                      </li>
 
-        <div class="row my-5 h4">
-          <!-- FOR EACH ACTOR-->
+                      <li id="pageH" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">H</a>
+                      </li>
+                      <li id="pageI" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">I</a>
+                      </li>
+                      <li id="pageJ" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">J</a>
+                      </li>
+                      <li id="pageK" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">K</a>
+                      </li>
+                      <li id="pageL" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">L</a>
+                      </li>
+                      <li id="pageM" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">M</a>
+                      </li>
+                      <li id="pageN" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">N</a>
+                      </li>
+                      <li id="pageO" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">O</a>
+                      </li>
+                      <li id="pageP" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">P</a>
+                      </li>
+                      <li id="pageQ" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">Q</a>
+                      </li>
+                      <li id="pageR" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">R</a>
+                      </li>
+                      <li id="pageS" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">S</a>
+                      </li>
 
-          <div class="col col-lg-3 col-sm-4 mb-4">
-            <ul>
-              <li>Ghana</li>
-            </ul>
-          </div>
-          <!--     -->
+                      <li id="pageT" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">T</a>
+                      </li>
+                      <li id="pageU" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">U</a>
+                      </li>
+                      <li id="pageV" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">V</a>
+                      </li>
+                      <li id="pageW" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">W</a>
+                      </li>
+                      <li id="pageX" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">X</a>
+                      </li>
+                      <li id="pageY" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">Y</a>
+                      </li>
+                      </li>
+                      <li id="pageZ" class="page-item">
+                          <a onclick='changePage()' class="page-link" href="#">Z</a>
+                      </li>
+                  </ul>
+              </nav>
 
-          <div class="col col-lg-3 col-sm-4 mb-4">
-            <ul>
-              <li>Ghana</li>
-            </ul>
+              <div class="row my-5 h4" data-bind="foreach: actors.list">
+
+                  <div class="col col-lg-3 col-sm-4 mb-4">
+                      <ul>
+                          <li data-bind="text: $data.Name"></li>
+                      </ul>
+                  </div>
+                  
+              </div>
           </div>
-          <div class="col col-lg-3 col-sm-4 mb-4">
-            <ul>
-              <li>Ghana</li>
-            </ul>
-          </div>
-          <div class="col col-lg-3 col-sm-4 mb-4">
-            <ul>
-              <li>Ghana</li>
-            </ul>
-          </div>
-          <div class="col col-lg-3 col-sm-4 mb-4">
-            <ul></ul>
-            <li>Ghana</li>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -134,5 +198,9 @@
     <!-- jQuery and Bootstrap Bundle -->
     <script src="scripts/jquery-3.5.1.min.js"></script>
     <script src="scripts/bootstrap.bundle.min.js"></script>
+        <!-- Knockoutjs -->
+        <script src="scripts/knockout-3.5.1.js"></script>
+
+        <script src="actors.js"></script>
   </body>
 </html>
