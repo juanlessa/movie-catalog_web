@@ -43,6 +43,13 @@ li:hover {
   font-size: 80%;
 }
 
+.line {
+  border-left: 2px solid black;
+  height: 100px;
+  display: inline-block;
+  box-shadow: 2px 0px 2px #888;
+}
+
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
