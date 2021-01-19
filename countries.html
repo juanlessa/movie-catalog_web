@@ -63,31 +63,36 @@
                         <li class="nav-item">
                             <a class="nav-link" href="actors.html">Actor</a>
                         </li>
-                        <form class="form-inline my-2 my-lg-0">
+                     
                             <input
+                                id="input_search"
                                 class="form-control mr-sm-2"
                                 type="search"
                                 placeholder="Search"
                                 aria-label="Search"
                             />
                             <button
+                                id="btn_search"
                                 class="btn btn-outline-success my-2 my-sm-0"
                                 type="submit"
                             >
                                 Search
                             </button>
-                        </form>
+                    
                     </ul>
                 </div>
             </nav>
             <!--  END NAVBAR  -->
 
             <div id="loader" class="loader"></div>
+
+            <div id="noResult" class="my-5 text-secondary display-2 text-center d-none">No result</div>
+
             <div id="conteudo" class="hide">
                 <div class="display-4 font-weight-bold my-4">Countries</div>
                 <div class="row">
                     <!-- pagination -->
-                    <nav aria-label="...">
+                    <nav id="pagination" aria-label="...">
                         <ul id="pageList" class="pagination">
                             <li id="pageA" class="page-item active">
                                 <a onclick='changePage()' class="page-link" href="#">A</a>
