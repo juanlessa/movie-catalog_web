@@ -82,108 +82,37 @@
       <div id="conteudo" class="hide">
           <div class="display-4 font-weight-bold my-4">Actors</div>
           <div class="row">
-              <!-- pagination -->
-              <nav aria-label="...">
-                  <ul id="pageList" class="pagination">
-                      <li id="pageA" class="page-item active">
-                          <a onclick='changePage()' class="page-link" href="#">A</a>
-                      </li>
-                      <li id="pageB" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">B</a>
-                      </li>
-                      <li id="pageC" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">C</a>
-                      </li>
-                      <li id="pageD" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">D</a>
-                      </li>
-                      <li id="pageE" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">E</a>
-                      </li>
-                      <li id="pageF" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">F</a>
-                      </li>
-                      <li id="pageG" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">G</a>
-                      </li>
-
-                      <li id="pageH" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">H</a>
-                      </li>
-                      <li id="pageI" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">I</a>
-                      </li>
-                      <li id="pageJ" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">J</a>
-                      </li>
-                      <li id="pageK" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">K</a>
-                      </li>
-                      <li id="pageL" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">L</a>
-                      </li>
-                      <li id="pageM" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">M</a>
-                      </li>
-                      <li id="pageN" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">N</a>
-                      </li>
-                      <li id="pageO" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">O</a>
-                      </li>
-                      <li id="pageP" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">P</a>
-                      </li>
-                      <li id="pageQ" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">Q</a>
-                      </li>
-                      <li id="pageR" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">R</a>
-                      </li>
-                      <li id="pageS" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">S</a>
-                      </li>
-
-                      <li id="pageT" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">T</a>
-                      </li>
-                      <li id="pageU" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">U</a>
-                      </li>
-                      <li id="pageV" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">V</a>
-                      </li>
-                      <li id="pageW" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">W</a>
-                      </li>
-                      <li id="pageX" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">X</a>
-                      </li>
-                      <li id="pageY" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">Y</a>
-                      </li>
-                      </li>
-                      <li id="pageZ" class="page-item">
-                          <a onclick='changePage()' class="page-link" href="#">Z</a>
-                      </li>
-                  </ul>
-              </nav>
-
               <div class="row my-5 h4" data-bind="foreach: actors.list">
 
                   <div class="col col-lg-3 col-sm-4 mb-4">
                       <ul>
-                          <li data-bind="text: $data.Name"></li>
+                          <li
+                              onclick="redirectPage(this)"
+                            data-bind="text: $data.Name,  attr: {id: $data.Id}">
+                          </li>
                       </ul>
                   </div>
                   
               </div>
           </div>
+
+
+          <!-- Paginação -->
+          <nav aria-label="...">
+            <ul id="pageList" class="pagination pagination-lg">
+              <li id="page1" class="page-item active">
+                <a onclick="changePage()" class="page-link" href="#" tabindex="-1"
+                  >1</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+
       </div>
     </div>
 
     <!-- FOOTER -->
-
     <div class="footer bg-dark text-white fixed-bottom py-3">
       <span class="text-left mx-4 text-secondary"
         ><i class="fa fa-copyright"></i> 2021 - Introdução à Tecnologias
