@@ -31,6 +31,13 @@ async function getCategoryTitles(categories) {
     }
     return cat_list;
 }
+//redirect
+function redirectPage(elem){
+    var id = elem.parentNode.childNodes[1].innerHTML
+    window.location.replace("details.html?id="+id);
+}
+
+
 //muda de pagina
 async function changePage(){
     //hide loader
