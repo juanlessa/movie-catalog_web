@@ -5,9 +5,9 @@ function getUrlVars() {
     });
     return vars;
 }
-async function getCategoryTitles(catId, page) {
+async function getCountryTitles(countId, page) {
     const result = await $.ajax({
-        url: "http://192.168.160.58/netflix/api/Categories/" + catId + "?page="+ page +"&pagesize="+ current_pagesize,
+        url: "http://192.168.160.58/netflix/api/Countries/" + countId + "?page="+ page +"&pagesize="+ current_pagesize,
         type: "GET",
         success: function (data) {
             //wacky nested anonymous callbacks go here
@@ -33,8 +33,9 @@ async function changePage(){
     }else{
         pageToJump = current_page - 1
         $("#pNext").removeClass("disabled");
+
     }
-    var title_list = await getCategoryTitles(parms.id, pageToJump);
+    var title_list = await getCountryTitles(parms.id, pageToJump);
     title_list = title_list.Titles
     if (title_list.length == 0) {
         $("#pNext").toggleClass("disabled");
@@ -92,9 +93,9 @@ var number_of_pages = 1;
 var parms = getUrlVars()
 console.log(parms.id)
 $(document).ready(async function () {
-    var title_list = await getCategoryTitles(parms.id, current_page);
-    var cat_name = title_list.Name
-    $("#categoryName").text(cat_name)
+    var title_list = await getCountryTitles(parms.id, current_page);
+    var count_name = title_list.Name
+    $("#countryName").text(count_name)
     title_list = title_list.Titles
     title_list.map((title) =>
         titles.list.push(title)

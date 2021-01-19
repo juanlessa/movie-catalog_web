@@ -39,7 +39,11 @@ async function changePage(){
     countries.list.shift()
 
 }
-
+//redirect
+function redirectPage(elem){
+    var id = elem.id
+    window.location.replace("countryTitles.html?id="+id);
+}
 
 //lista de categorias
 function CountriesViewModel(){
