@@ -29,7 +29,9 @@ async function changePage(){
     $("#loader").toggleClass("hide-loader");
 
     pageToJump = event.target.text
-    for (let i = 0; i < current_pagesize - 1; i++) {
+
+    var len =  categories.list().length
+    for (let i = 0; i < len - 1; i++) {
         categories.list.pop()
     }
     $("#page"+pageToJump).toggleClass("disabled");
@@ -49,6 +51,13 @@ async function changePage(){
     $("#conteudo").toggleClass("hide");
     $("#loader").toggleClass("hide-loader");
 }
+//redirect
+function redirectPage(elem){
+    
+    var id = elem.id
+    window.location.replace("categoryTitles.html?id="+id);
+}
+
 
 
 //lista de categorias

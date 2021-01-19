@@ -86,12 +86,14 @@
             <div id="conteudo" class="hide">
                 <div class=" display-4 font-weight-bold my-4">All Titles</div>
                 <div class="row" data-bind="foreach: categories.list">
-                    <div
-                        data-bind="text: $data.Name"
-                        class="col col-lg-3 col-md-4 col-sm-6 text-center my-4 py-3 category"
-                        onmouseover="toggleBorder(this)"
-                        onmouseout="untoggleBorder(this)"
-                    >
+                        <div
+                            onclick="redirectPage(this)"
+                            data-bind="text: $data.Name, attr: {id: $data.Id}"
+                            class="col col-lg-3 col-md-4 col-sm-6 text-center my-4 py-3 category"
+                            onmouseover="toggleBorder(this)"
+                            onmouseout="untoggleBorder(this)"
+                        >
+                        </div>
                     </div>
                 </div>
                 
