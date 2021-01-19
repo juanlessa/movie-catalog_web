@@ -75,7 +75,7 @@ $(document).ready(async function () {
     //pagination
     for (let i = 2; i <= number_of_pages; i++) {
         $("#pageList").append( "<li id='page"+ i +"' class='page-item'><a class='page-link' href='#' onclick='changePage()'>"+i+"</a></li>" );
-    }onclick
+    }
 
     //hide loader
     $("#conteudo").toggleClass("hide");
