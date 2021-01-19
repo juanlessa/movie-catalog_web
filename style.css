@@ -21,6 +21,10 @@ a:hover {
   border-bottom-right-radius: 20px;
 }
 
+.search {
+  margin-left: 5vw;
+}
+
 .homescreen {
   height: 60vh;
   background-color: rgba(0, 0, 0, 0.1);

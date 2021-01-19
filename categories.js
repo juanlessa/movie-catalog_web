@@ -112,9 +112,22 @@ $("#btn_search").click(async function (e) {
     if (input == "") {
         return false
     }
+    //hide loader
+    $("#conteudo").addClass("hide");
+    $("#loader").removeClass("hide-loader");
+    //hide pagination
+    $("#pagination").addClass("d-none");
+    $("#noResult").addClass("d-none");
     console.log("seach")
     var cats = await getCategoryByName(input)
     console.log(cats)
+
+    if (cats.length == 0) {
+        //hide loader
+        $("#noResult").removeClass("d-none");
+        $("#loader").addClass("hide-loader");
+        return false
+    }
 
     var len =  categories.list().length
     for (let i = 0; i < len - 1; i++) {
@@ -127,7 +140,9 @@ $("#btn_search").click(async function (e) {
         })
     );
     categories.list.shift()
-
+    //hide loader
+    $("#conteudo").removeClass("hide");
+    $("#loader").addClass("hide-loader");
 
     return false
 });

@@ -59,12 +59,14 @@
                             >
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="directors.html">Director</a>
+                            <a class="nav-link" href="directors.html"
+                                >Director</a
+                            >
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="actors.html">Actor</a>
                         </li>
-                        
+                       
                             <input
                                 id="input_search"
                                 class="form-control mr-smy-4"
@@ -79,40 +81,50 @@
                             >
                                 Search
                             </button>
-                        
+                
                     </ul>
                 </div>
             </nav>
             <!--  END NAVBAR  -->
             <div class="loader" id="loader"></div>
+            
+            <div id="noResult" class="my-5 text-secondary display-2 text-center d-none">No result</div>
+
+
             <div id="conteudo" class="hide">
-                <div class=" display-4 font-weight-bold my-4">All Titles</div>
+                <div class="display-4 font-weight-bold my-4">All Titles</div>
                 <div class="row" data-bind="foreach: categories.list">
-                        <div
-                            onclick="redirectPage(this)"
-                            data-bind="text: $data.Name, attr: {id: $data.Id}"
-                            class="col col-lg-3 col-md-4 col-sm-6 text-center my-4 py-3 category"
-                            onmouseover="toggleBorder(this)"
-                            onmouseout="untoggleBorder(this)"
-                        >
-                        </div>
-                    </div>
+                    <div
+                        onclick="redirectPage(this)"
+                        data-bind="text: $data.Name, attr: {id: $data.Id}"
+                        class="col col-lg-3 col-md-4 col-sm-6 text-center my-4 py-3 category"
+                        onmouseover="toggleBorder(this)"
+                        onmouseout="untoggleBorder(this)"
+                    ></div>
                 </div>
-                
+
                 <!-- Paginação -->
-                <div class="row">
-                    <nav aria-label="..." style="margin: auto; margin-top: 0.5vh;">
+                <div  class="row">
+                    <nav    
+                        id="pagination"
+                        aria-label="..."
+                        style="margin: auto; margin-top: 0.5vh"
+                    >
                         <ul id="pageList" class="pagination pagination-lg">
-                        <li id='page1' class="page-item disabled">
-                            <a onclick='changePage()' class="page-link" href="#" tabindex="-1">1</a>
-                        </li>
+                            <li id="page1" class="page-item disabled">
+                                <a
+                                    onclick="changePage()"
+                                    class="page-link"
+                                    href="#"
+                                    tabindex="-1"
+                                    >1</a
+                                >
+                            </li>
                         </ul>
                     </nav>
                 </div>
             </div>
-
-                
-            
+        </div>
 
         <!-- FOOTER -->
 
