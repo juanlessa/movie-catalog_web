@@ -5,9 +5,9 @@ function getUrlVars() {
     });
     return vars;
 }
-async function getDirectorTitles(directId) {
+async function getActorTitles(actId) {
     const result = await $.ajax({
-        url: "http://192.168.160.58/netflix/api/Directors/" + directId,
+        url: "http://192.168.160.58/netflix/api/Actors/" + actId,
         type: "GET",
         success: function (data) {
             //wacky nested anonymous callbacks go here
@@ -18,6 +18,9 @@ async function getDirectorTitles(directId) {
     });
     return result;
 }
+
+
+//muda de pagina
 
 
 //redirect
@@ -40,10 +43,10 @@ ko.applyBindings(titles);
 var parms = getUrlVars()
 console.log(parms.id)
 $(document).ready(async function () {
-    var title_list = await getDirectorTitles(parms.id);
-    var direct_name = title_list.Name
-    console.log(direct_name)
-    $("#directorName").text(direct_name)
+    var title_list = await getActorTitles(parms.id);
+    var act_name = title_list.Name
+    console.log(act_name)
+    $("#actorName").text(act_name)
     title_list = title_list.Titles
     console.log(title_list)
     title_list.map((title) =>
