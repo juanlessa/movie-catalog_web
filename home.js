@@ -72,7 +72,7 @@ ko.applyBindings(categories);
 
 //paginação
 var current_page = 1;
-var current_pagesize = 5;
+var current_pagesize = 3;
 var number_of_pages = 1;
 $(document).ready(async function () {
     var cats = await getCategories(current_page, current_pagesize);

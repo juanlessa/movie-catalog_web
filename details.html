@@ -95,12 +95,12 @@
       <!--  END NAVBAR  -->
 
       <div class="row">
-      <!--data-bind TITLE NAME-->  
-        <div class="col-9 display-4 mt-5 ml-n2 font-weight-bold">The Prestige</div>
-        <!--data-bind RELEASE YEAR-->
-        <div class="col-4 text-secondary h3 mb-4">2006</div>
-        <!--data-bind -->  
-        <div class="col-4 ml-n5 text-secondary h3">130min</div>
+      <!-- TITLE NAME-->  
+        <div id="titleName" class="col-9 display-4 mt-5 ml-n2 font-weight-bold"></div>
+        <!-- RELEASE YEAR-->
+        <div id="releaseYear" class="col-4 text-secondary h3 mb-4"></div>
+        <!-- DURATION-->  
+        <div id="duration" class="col-4 ml-n5 text-secondary h3"></div>
       </div>
 
       <div class="row">
@@ -108,8 +108,8 @@
 
         <div class="row">
             <div class="col-8 h2 ml-n3 mt-4">Synopsis</div>
-            <!-- data-bind: DESCRIPTION-->
-            <div class="col-8 h6 mt-1"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit doloribus optio atque fuga praesentium alias placeat harum, neque rem enim eos, culpa nesciunt ad dicta facere, et at molestias beatae? </div>
+            <!-- DESCRIPTION-->
+            <div id="description" class="col-8 h6 mt-1"> </div>
             <!---->
         </div>
         
@@ -118,19 +118,17 @@
         </div>
 
         <div class="row mt-2">
-          <!--data-bind: DIRECTOR-->
-          <!-- Se não for dar muito trabalho, colocar last name .toUpperCase()-->
-            <div class="col-3 h6">Christopher Nolan</div>
+          <!-- DIRECTOR-->
+          <div id="director"  class="col-3 h6"></div>
         </div>
         
         <div class="col-9 h4 mt-5 mb-3 ml-n4">Cast</div>
         
         <div class="row"> 
           <div class="col-6">
-            <!--data-bind FOR EACH ACTOR ONE ROW-->
-            <div class="row">
-              <div class="col-6 mb-5">Hugh Jackman</div>  
-              <div class="col-6 mb-5">Hugh Jackman</div>
+            <!-- ACTOR ONE ROW-->
+            <div id="actorsList" class="row">
+             
             </div>
           </div>
         </div>
@@ -141,9 +139,7 @@
         <div class="col-12 h2 mt-4">Rating</div>
       </div>
       <div class="row">
-        <div class="col-12 h2 ml-n5">
-          <!-- data-bind AJEITAR STARS REFERENTE À RATING -->
-          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></i><i class="fa fa-star-half-o"></i><i class="fa fa-star-o"></i>
+        <div id="rating" class="col-12 h2 ml-n5">
         </div>
       </div>
       <div class="row">
@@ -182,7 +178,7 @@
       <!-- Knockoutjs -->
       <script src="scripts/knockout-3.5.1.js"></script>
   
-      <script src="home.js"></script>
+      <script src="details.js"></script>
     </body>
   </html>
   
