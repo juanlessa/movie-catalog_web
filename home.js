@@ -44,8 +44,7 @@ async function changePage(){
     $("#page"+pageToJump).toggleClass("disabled");
     $("#page"+current_page).toggleClass("disabled");
     current_page = pageToJump
-    console.log(categories.list());
-    console.log(categories.list()[0].Titles());
+
 
     var cats = await getCategories(pageToJump, current_pagesize);
     var cat_list = await getCategoryTitles(cats);
@@ -95,53 +94,6 @@ $(document).ready(async function () {
     $("#loader").toggleClass("hide-loader");
     console.log(categories.list());
     console.log(categories.list()[0].Titles());
-
-    
 });
 
 
-
-
-
-
-/*
-//variable to store categories information temporally
-var categ = []
-$(document).ready(function () {
-    //get categories list
-    $.get("http://192.168.160.58/netflix/api/Categories?page=1&pagesize=10", function (data, status) {
-        var cats = data.Categories
-        categ = cats.map(category => (
-            {"Id": category.Id, "Name": category.Name, "Titles": []}
-        ));
-    }).done(function(res){
-        for (let i = 0; i < categ.length; i++){
-            var id = categ[i].Id
-            $.get("http://192.168.160.58/netflix/api/Categories/"+id, function (data, status) {
-                categories_list.push({"Id": categ[i].Id, "Name": categ[i].Name, "Titles": ko.observableArray(data.Titles.slice(0,10))})
-                console.log(data.Titles.slice(0,10))
-            })
-        }
-        ko.applyBindings(categories_list)
-        console.log(categ)
-    })
-
-    
-    
-
-});
-
-
-/*
-
-    $.getJSON(
-        "http://192.168.160.58/netflix/api/Categories?page=1&pagesize=10",
-        function (data) {
-            var cats = data.Categories
-            cats.map(category => (
-                categories_list.push({"Id": category.Id, "Name": category.Name, "Titles": []})
-            ));
-            ko.applyBindings(categories_list)
-        }
-    );
-*/
