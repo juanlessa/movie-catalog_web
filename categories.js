@@ -92,4 +92,43 @@ $(document).ready(async function () {
     console.log(categories.list());
 });
 
+//seach
+async function getCategoryByName(name) {
+    const result = await $.ajax({
+        url: "http://192.168.160.58/netflix/api/Search/Categories?name="+name,
+        type: "GET",
+        success: function (data) {
+            //wacky nested anonymous callbacks go here
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            // Empty most of the time...
+        },
+    });
+    return result
+}
+
+$("#btn_search").click(async function (e) { 
+    var input = $("#input_search").val();
+    if (input == "") {
+        return false
+    }
+    console.log("seach")
+    var cats = await getCategoryByName(input)
+    console.log(cats)
+
+    var len =  categories.list().length
+    for (let i = 0; i < len - 1; i++) {
+        categories.list.pop()
+    }
+    cats.map((category) =>
+        categories.list.push({
+            Id: category.Id,
+            Name: category.Name,
+        })
+    );
+    categories.list.shift()
+
+
+    return false
+});
 
