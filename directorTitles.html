@@ -94,11 +94,19 @@
       </nav>
       <!--  END NAVBAR  -->
 
+      <div class="row">
+        <div class="col-12 text-center mt-5">
+            <!-- data-bind ACTOR/DIRECTOR/FILME -->
+            <div class="display-2" id="directorName"></div>
+        </div>
+        <div class="col-7"></div>
+        <div class="col-3 h3 mt-n3 text-secondary">Filmografia
+        </div>
+    </div>
       
       <div class="loader" id="loader"></div>
 
         <div id="conteudo" class="hide">
-            <h1 id="directorName"></h1>
             <div class="row" data-bind="foreach: titles.list">
             <div class="col col-md-3 col-lg-4 col-sm-4 d-flex">
                 <div class="card my-5">
