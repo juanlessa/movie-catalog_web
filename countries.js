@@ -73,3 +73,60 @@ $(document).ready(async function () {
     $("#loader").toggleClass("hide-loader");
     ;
 });
+
+//seach
+async function getCountryByName(name) {
+    const result = await $.ajax({
+        url: "http://192.168.160.58/netflix/api/Search/Countries?name="+name,
+        type: "GET",
+        success: function (data) {
+            //wacky nested anonymous callbacks go here
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            // Empty most of the time...
+        },
+    });
+    return result
+}
+
+$("#btn_search").click(async function (e) { 
+    var input = $("#input_search").val();
+    if (input == "") {
+        return false
+    }
+    //hide loader
+    $("#conteudo").addClass("hide");
+    $("#loader").removeClass("hide-loader");
+    //hide pagination
+    $("#pagination").addClass("d-none");
+    $("#noResult").addClass("d-none");
+    console.log("seach")
+    var counts = await getCountryByName(input)
+    console.log(counts)
+
+    if (counts.length == 0) {
+        //hide loader
+        $("#noResult").removeClass("d-none");
+        $("#loader").addClass("hide-loader");
+        return false
+    }
+
+    var len =  countries.list().length
+    for (let i = 0; i < len - 1; i++) {
+        countries.list.pop()
+    }
+    counts.map((country) =>
+        countries.list.push({
+            Id: country.Id,
+            Name: country.Name,
+        })
+    );
+    countries.list.shift()
+    //hide loader
+    $("#conteudo").removeClass("hide");
+    $("#loader").addClass("hide-loader");
+
+    return false
+});
+
+
