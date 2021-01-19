@@ -82,19 +82,31 @@
                 </div>
             </nav>
             <!--  END NAVBAR  -->
-
-            <div class="display-4 font-weight-bold my-4">All Titles</div>
-            <div class="row" data-bind="foreach: categories_list">
-
-                <div
-                    data-bind="text: $data.Name"
-                    class="col col-lg-3 col-md-4 col-sm-6 text-center my-4 py-3 category"
-                    onmouseover="toggleBorder(this)"
-                    onmouseout="untoggleBorder(this)"
-                >
+            <div class="loader" id="loader"></div>
+            <div id="conteudo" class="hide">
+                <div class=" display-4 font-weight-bold my-4">All Titles</div>
+                <div class="row" data-bind="foreach: categories.list">
+                    <div
+                        data-bind="text: $data.Name"
+                        class="col col-lg-3 col-md-4 col-sm-6 text-center my-4 py-3 category"
+                        onmouseover="toggleBorder(this)"
+                        onmouseout="untoggleBorder(this)"
+                    >
+                    </div>
                 </div>
+                
+                <!-- Paginação -->
+                <nav aria-label="...">
+                    <ul id="pageList" class="pagination pagination-lg">
+                    <li id='page1' class="page-item disabled">
+                        <a onclick='changePage()' class="page-link" href="#" tabindex="-1">1</a>
+                    </li>
+                    </ul>
+                </nav>
             </div>
-        </div>
+
+                
+            
 
         <!-- FOOTER -->
 
