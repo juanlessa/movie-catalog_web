@@ -106,30 +106,29 @@
       
       <div class="loader" id="loader"></div>
 
-      <div class="content hide" id="conteudo">
-          <div class="content" data-bind="foreach: categories.list">
-              <div class="row">
-              <div class="col mt-5">
-                  <h1 data-bind="text: Name"></h1>
-                  <div class="row" data-bind="foreach: Titles">
-                  <div class="col col-md-3 col-lg-4 col-sm-4 d-flex">
-                      <div class="card my-5">
-                      <div class="card-body bg-dark">
-                          <h5 class="card-title" data-bind="text: Name"></h5>
-                          <p
-                          class="card-text tex"
-                          data-bind="text: $data.Description"
-                          ></p>
-                          <a href="#" class="btn btn-primary">More</a>
-                      </div>
-                      </div>
-                  </div>
-                  </div>
-              </div>
-              </div>
-          </div>
 
-    </div>    
+              <div class="row">
+                <div class="col mt-5">
+                    <h1 data-bind="text: Name"></h1>
+                    <div class="row" data-bind="foreach: Titles">
+                        <div class="col col-md-3 col-lg-4 col-sm-4 d-flex">
+                            <div class="card my-5">
+                                <div class="card-body bg-dark">
+                                    <h5 class="card-title" data-bind="text: Name"></h5>
+                                    <p
+                                    class="card-text tex"
+                                    data-bind="text: $data.Description"
+                                    ></p>
+                                    <a href="#" class="btn btn-primary">More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    
+    </div>
 
 
 
