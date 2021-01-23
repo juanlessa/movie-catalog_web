@@ -79,3 +79,61 @@ $(document).ready(async function () {
     $("#conteudo").toggleClass("hide");
     $("#loader").toggleClass("hide-loader");
 });
+
+
+
+//seach
+async function getActorByName(name) {
+    const result = await $.ajax({
+        url: "http://192.168.160.58/netflix/api/Search/Actors?name=" + name,
+        type: "GET",
+        success: function (data) {
+            //wacky nested anonymous callbacks go here
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            // Empty most of the time...
+        },
+    });
+    return result;
+}
+
+$("#btn_search").click(async function (e) {
+    var input = $("#input_search").val();
+    console.log(input)
+    if (input == "") {
+        return false;
+    }
+    //hide loader
+    $("#conteudo").addClass("d-none");
+    $("#loader").removeClass("hide-loader");
+    //hide pagination
+    $("#pagination").addClass("d-none");
+    $("#noResult").addClass("d-none");
+    console.log("seach");
+    var acts = await getActorByName(input);
+    console.log(acts);
+
+    if (acts.length == 0) {
+        //hide loader
+        $("#noResult").removeClass("d-none");
+        $("#loader").addClass("hide-loader");
+        return false;
+    }
+
+    var len = actors.list().length;
+    for (let i = 0; i < len - 1; i++) {
+        actors.list.pop();
+    }
+    acts.map((actor) =>
+        actors.list.push({
+            Id: actor.Id,
+            Name: actor.Name,
+        })
+    );
+    actors.list.shift();
+    //hide loader
+    $("#conteudo").removeClass("d-none");
+    $("#loader").addClass("hide-loader");
+
+    return false;
+});
