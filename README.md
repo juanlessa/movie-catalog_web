@@ -1,3 +1,5 @@
+# Movie Catalog
+
 ## Sobre
 
 Este projeto foi meu trabalho de conclusão da disciplina de ITW (Introdução as Tecnologias Web), junto com o [@thisbra](https://github.com/thisbra).
